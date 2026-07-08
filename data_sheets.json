@@ -1,0 +1,583 @@
+{
+  "products": [
+    {
+      "id": "p1",
+      "name": "Aceite Primor Premium 2L",
+      "category": "Abarrotes",
+      "price": 12.5,
+      "costPrice": 9.2,
+      "stock": 23,
+      "minStock": 5,
+      "unit": "botella"
+    },
+    {
+      "id": "p2",
+      "name": "Aceite Primor Premium 1L",
+      "category": "Abarrotes",
+      "price": 9.5,
+      "costPrice": 7.2,
+      "stock": 23,
+      "minStock": 5,
+      "unit": "botella"
+    },
+    {
+      "id": "p3",
+      "name": "Fideos TallarÃƒÂ­n Don Vittorio 1kg",
+      "category": "Abarrotes",
+      "price": 5.2,
+      "costPrice": 3.8,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "paquete"
+    },
+    {
+      "id": "p4",
+      "name": "Azucar Rubia Dulfina 1kg",
+      "category": "Abarrotes",
+      "price": 4.2,
+      "costPrice": 3.1,
+      "stock": 50,
+      "minStock": 15,
+      "unit": "kg"
+    },
+    {
+      "id": "p5",
+      "name": "Atun Primor Trozos en Aceite",
+      "category": "Abarrotes",
+      "price": 6.5,
+      "costPrice": 4.8,
+      "stock": 29,
+      "minStock": 6,
+      "unit": "lata"
+    },
+    {
+      "id": "p6",
+      "name": "Leche Gloria Azul Lata 400g",
+      "category": "LÃ¡cteos y Huevos",
+      "price": 4.5,
+      "costPrice": 3.4,
+      "stock": 58,
+      "minStock": 12,
+      "unit": "lata"
+    },
+    {
+      "id": "p7",
+      "name": "Yogurt Gloria Fresa 1L",
+      "category": "LÃ¡cteos y Huevos",
+      "price": 7.2,
+      "costPrice": 5.2,
+      "stock": 14,
+      "minStock": 4,
+      "unit": "botella"
+    },
+    {
+      "id": "p8",
+      "name": "Queso Fresco Andino 1kg",
+      "category": "LÃ¡cteos y Huevos",
+      "price": 24,
+      "costPrice": 18,
+      "stock": 6,
+      "minStock": 2,
+      "unit": "kg"
+    },
+    {
+      "id": "p9",
+      "name": "Mantequilla Gloria con Sal 200g",
+      "category": "LÃ¡cteos y Huevos",
+      "price": 6.8,
+      "costPrice": 4.9,
+      "stock": 24,
+      "minStock": 5,
+      "unit": "unidad"
+    },
+    {
+      "id": "p10",
+      "name": "Plancha de Huevos (30 unid)",
+      "category": "LÃ¡cteos y Huevos",
+      "price": 16.5,
+      "costPrice": 12.5,
+      "stock": 11,
+      "minStock": 3,
+      "unit": "plancha"
+    },
+    {
+      "id": "p11",
+      "name": "Pollo Entero Limpio con Menudencia",
+      "category": "Pollo y Carnes",
+      "price": 10.5,
+      "costPrice": 7.8,
+      "stock": 15,
+      "minStock": 3,
+      "unit": "kg"
+    },
+    {
+      "id": "p12",
+      "name": "Pechuga de Pollo Fresca",
+      "category": "Pollo y Carnes",
+      "price": 14.8,
+      "costPrice": 11.2,
+      "stock": 6,
+      "minStock": 2,
+      "unit": "kg"
+    },
+    {
+      "id": "p13",
+      "name": "Carne de Res - Bistec",
+      "category": "Pollo y Carnes",
+      "price": 28,
+      "costPrice": 22,
+      "stock": 8,
+      "minStock": 2,
+      "unit": "kg"
+    },
+    {
+      "id": "p14",
+      "name": "Carne de Cerdo - Chuleta",
+      "category": "Pollo y Carnes",
+      "price": 18.5,
+      "costPrice": 14,
+      "stock": 11,
+      "minStock": 3,
+      "unit": "kg"
+    },
+    {
+      "id": "p15",
+      "name": "Platano de Seda de Chanchamayo",
+      "category": "Frutas y Verduras",
+      "price": 3.5,
+      "costPrice": 2.2,
+      "stock": 25,
+      "minStock": 5,
+      "unit": "kg"
+    },
+    {
+      "id": "p16",
+      "name": "Manzana Delicia Importada",
+      "category": "Frutas y Verduras",
+      "price": 6,
+      "costPrice": 4,
+      "stock": 20,
+      "minStock": 4,
+      "unit": "kg"
+    },
+    {
+      "id": "p17",
+      "name": "Papa Amarilla de la Sierra",
+      "category": "Frutas y Verduras",
+      "price": 4.5,
+      "costPrice": 3,
+      "stock": 38,
+      "minStock": 10,
+      "unit": "kg"
+    },
+    {
+      "id": "p18",
+      "name": "Cebolla Roja de Arequipa",
+      "category": "Frutas y Verduras",
+      "price": 3.2,
+      "costPrice": 2,
+      "stock": 35,
+      "minStock": 8,
+      "unit": "kg"
+    },
+    {
+      "id": "p19",
+      "name": "Limon Sutil Piurano",
+      "category": "Frutas y Verduras",
+      "price": 5.5,
+      "costPrice": 3.5,
+      "stock": 18,
+      "minStock": 5,
+      "unit": "kg"
+    },
+    {
+      "id": "p20",
+      "name": "Detergente BoliÂ­var Flores de Limon 1kg",
+      "category": "Productos de Limpieza",
+      "price": 10.2,
+      "costPrice": 7.5,
+      "stock": 20,
+      "minStock": 4,
+      "unit": "bolsa"
+    },
+    {
+      "id": "p21",
+      "name": "Lavavajilla AyudiÂ­n LimÃ³n 400g",
+      "category": "Productos de Limpieza",
+      "price": 4.8,
+      "costPrice": 3.4,
+      "stock": 29,
+      "minStock": 6,
+      "unit": "pote"
+    },
+    {
+      "id": "p22",
+      "name": "LejÃ­a Clorox Tradicional 1L",
+      "category": "Productos de Limpieza",
+      "price": 3.9,
+      "costPrice": 2.7,
+      "stock": 24,
+      "minStock": 5,
+      "unit": "botella"
+    },
+    {
+      "id": "p23",
+      "name": "Cerveza Pilsen Callao 630ml (Botella)",
+      "category": "Bebidas y Licores",
+      "price": 6.5,
+      "costPrice": 4.8,
+      "stock": 120,
+      "minStock": 20,
+      "unit": "botella"
+    },
+    {
+      "id": "p24",
+      "name": "Pisco Quebranta Santiago Queirolo 750ml",
+      "category": "Bebidas y Licores",
+      "price": 38,
+      "costPrice": 29,
+      "stock": 6,
+      "minStock": 2,
+      "unit": "botella"
+    },
+    {
+      "id": "p25",
+      "name": "Vino Tinto Intipalka Malbec 750ml",
+      "category": "Bebidas y Licores",
+      "price": 42,
+      "costPrice": 31,
+      "stock": 8,
+      "minStock": 2,
+      "unit": "botella"
+    },
+    {
+      "id": "p26",
+      "name": "Gaseosa Inca Kola 3L",
+      "category": "Bebidas y Licores",
+      "price": 11.5,
+      "costPrice": 8.5,
+      "stock": 40,
+      "minStock": 8,
+      "unit": "botella"
+    },
+    {
+      "id": "p27",
+      "name": "Producto registrado por el sistema IA",
+      "category": "Abarrotes",
+      "price": 4.5,
+      "costPrice": 3,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "unidad"
+    },
+    {
+      "id": "p28",
+      "name": "Cerveza en lata 3 ositos",
+      "category": "Bebidas y Licores",
+      "price": 25,
+      "costPrice": 22,
+      "stock": 9,
+      "minStock": 3,
+      "unit": "paquete"
+    },
+    {
+      "id": "p29",
+      "name": "Avena tres cruces",
+      "category": "Abarrotes",
+      "price": 16,
+      "costPrice": 10,
+      "stock": 20,
+      "minStock": 3,
+      "unit": "bolsa"
+    },
+    {
+      "id": "p30",
+      "name": "Arroz Faraon",
+      "category": "Abarrotes",
+      "price": 15,
+      "costPrice": 10,
+      "stock": 9,
+      "minStock": 3,
+      "unit": "bolsa"
+    },
+    {
+      "id": "p31",
+      "name": "Atun Primor Trozos en Aceite",
+      "category": "Abarrotes",
+      "price": 7,
+      "costPrice": 5,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "lata"
+    },
+    {
+      "id": "p32",
+      "name": "Sal de Soda",
+      "category": "Abarrotes",
+      "price": 3,
+      "costPrice": 2,
+      "stock": 10,
+      "minStock": 3,
+      "unit": "bolsa"
+    },
+    {
+      "name": "Arroz del Norte",
+      "category": "Abarrotes",
+      "price": 10,
+      "costPrice": 9,
+      "stock": 100,
+      "minStock": 5,
+      "unit": "kg",
+      "id": "p33"
+    }
+  ],
+  "sales": [
+    {
+      "items": [
+        {
+          "productId": "p14",
+          "productName": "Carne de Cerdo - Chuleta",
+          "price": 18.5,
+          "quantity": 1,
+          "total": 18.5
+        }
+      ],
+      "total": 18.5,
+      "paymentMethod": "Yape",
+      "status": "completado",
+      "customerPhone": "950143313",
+      "id": "v_1783464458370",
+      "date": "2026-07-07T22:47:38.370Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p28",
+          "productName": "Cerveza en lata 3 ositos",
+          "price": 25,
+          "quantity": 1,
+          "total": 25
+        },
+        {
+          "productId": "p30",
+          "productName": "Arroz Faraon ",
+          "price": 15,
+          "quantity": 1,
+          "total": 15
+        }
+      ],
+      "total": 40,
+      "paymentMethod": "Yape",
+      "status": "completado",
+      "customerPhone": "950143313",
+      "id": "v_1783472658643",
+      "date": "2026-07-08T01:04:18.643Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p6",
+          "productName": "Leche Gloria Azul Lata 400g",
+          "price": 4.5,
+          "quantity": 1,
+          "total": 4.5
+        }
+      ],
+      "total": 4.5,
+      "paymentMethod": "Plin",
+      "status": "completado",
+      "customerPhone": "950143313",
+      "id": "v_1783472929836",
+      "date": "2026-07-08T01:08:49.836Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p2",
+          "productName": "Aceite Primor Premium 1L",
+          "price": 9.5,
+          "quantity": 1,
+          "total": 9.5
+        }
+      ],
+      "total": 9.5,
+      "paymentMethod": "Efectivo",
+      "status": "completado",
+      "customerPhone": "950143313",
+      "customerName": "pepe",
+      "id": "v_1783473062387",
+      "date": "2026-07-08T01:11:02.387Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p30",
+          "productName": "Arroz Faraon ",
+          "price": 15,
+          "quantity": 2,
+          "total": 30
+        },
+        {
+          "productId": "p12",
+          "productName": "Pechuga de Pollo Fresca",
+          "price": 14.8,
+          "quantity": 1.45,
+          "total": 21.46
+        }
+      ],
+      "total": 51.46,
+      "paymentMethod": "Efectivo",
+      "status": "completado",
+      "customerPhone": "950143313",
+      "customerName": "pepe",
+      "id": "v_1783473423271",
+      "date": "2026-07-08T01:17:03.271Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p6",
+          "productName": "Leche Gloria Azul Lata 400g",
+          "price": 4.5,
+          "quantity": 1,
+          "total": 4.5
+        },
+        {
+          "productId": "p10",
+          "productName": "Plancha de Huevos (30 unid)",
+          "price": 16.5,
+          "quantity": 1,
+          "total": 16.5
+        },
+        {
+          "productId": "p8",
+          "productName": "Queso Fresco Andino 1kg",
+          "price": 24,
+          "quantity": 0.75,
+          "total": 18
+        },
+        {
+          "productId": "p17",
+          "productName": "Papa Amarilla de la Sierra",
+          "price": 4.5,
+          "quantity": 1.5,
+          "total": 6.75
+        }
+      ],
+      "total": 45.75,
+      "paymentMethod": "Efectivo",
+      "status": "completado",
+      "id": "v_1783473828179",
+      "date": "2026-07-08T01:23:48.179Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p5",
+          "productName": "Atun Primor Trozos en Aceite",
+          "price": 6.5,
+          "quantity": 1,
+          "total": 6.5
+        },
+        {
+          "productId": "p9",
+          "productName": "Mantequilla Gloria con Sal 200g",
+          "price": 6.8,
+          "quantity": 1,
+          "total": 6.8
+        },
+        {
+          "productId": "p12",
+          "productName": "Pechuga de Pollo Fresca",
+          "price": 14.8,
+          "quantity": 2,
+          "total": 29.6
+        }
+      ],
+      "total": 42.900000000000006,
+      "paymentMethod": "Yape",
+      "status": "completado",
+      "id": "v_1783475365879",
+      "date": "2026-07-08T01:49:25.879Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p7",
+          "productName": "Yogurt Gloria Fresa 1L",
+          "price": 7.2,
+          "quantity": 1,
+          "total": 7.2
+        },
+        {
+          "productId": "p8",
+          "productName": "Queso Fresco Andino 1kg",
+          "price": 24,
+          "quantity": 1,
+          "total": 24
+        }
+      ],
+      "total": 31.2,
+      "paymentMethod": "Plin",
+      "status": "completado",
+      "id": "v_1783475411750",
+      "date": "2026-07-08T01:50:11.750Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p22",
+          "productName": "Lejía Clorox Tradicional 1L",
+          "price": 3.9,
+          "quantity": 1,
+          "total": 3.9
+        },
+        {
+          "productId": "p21",
+          "productName": "Lavavajilla Ayudi­n Limón 400g",
+          "price": 4.8,
+          "quantity": 1,
+          "total": 4.8
+        }
+      ],
+      "total": 8.7,
+      "paymentMethod": "Efectivo",
+      "status": "completado",
+      "id": "v_1783476173855",
+      "date": "2026-07-08T02:02:53.855Z"
+    }
+  ],
+  "offers": [
+    {
+      "id": "o1",
+      "productId": "p23",
+      "productName": "Cerveza Pilsen Callao 630ml (Botella)",
+      "discountPrice": 5.8,
+      "description": "¡Promoción de fin de semana! Pilsen heladita a solo S/. 5.80 (Precio regular: S/. 6.50).",
+      "active": true
+    },
+    {
+      "productId": "p28",
+      "productName": "Cerveza en lata 3 ositos",
+      "discountPrice": 20,
+      "description": "PRomocion valida hasta agotar stock",
+      "active": true,
+      "id": "o_1783471385336"
+    },
+    {
+      "productId": "p4",
+      "productName": "Azucar Rubia Dulfina 1kg",
+      "discountPrice": 3.5,
+      "description": "promo hasta agotar stock",
+      "active": true,
+      "id": "o_1783476215690"
+    }
+  ],
+  "settings": {
+    "bodegaName": "Bodega Belthi y Nancy",
+    "ownerName": "Belthi y Nancy",
+    "phoneYape": "987654321",
+    "phonePlin": "912345678",
+    "whatsappNumber": "51987654321"
+  }
+}
