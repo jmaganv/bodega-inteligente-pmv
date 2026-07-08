@@ -3,6 +3,7 @@ import path from "path";
 import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
+import OpenAI from "openai";
 import { INITIAL_PRODUCTS, DEFAULT_SETTINGS } from "./src/utils/constants";
 import { Product } from "./src/types/product";
 import { Sale } from "./src/types/sale";
@@ -379,14 +380,10 @@ app.post("/api/chat", async (req, res) => {
       return res.json({ text: reply });
     }
 
-    const ai = new GoogleGenAI({
-      apiKey: apiKey,
-      httpOptions: {
-        headers: {
-          "User-Agent": "aistudio-build",
-        }
-      }
-    });
+    let openAIKey = process.env.OPENAI_API_KEY;
+    let aiProvider: "openai" | "gemini" = openAIKey ? "openai" : "gemini";
+
+    let resultText: string;
 
     // Create system instructions including the current real-time inventory and offers
     const catalogContext = db.products.map(p => 
@@ -433,26 +430,68 @@ REGLAS DE COMPORTAMIENTO:
 8. Mantente en el rol. Si te preguntan cosas que no son de la bodega (ej. código de software, política, física cuántica), responde con humor que eres el Asistente de la ${db.settings.bodegaName} (propietarios: ${db.settings.ownerName}) y que solo sabes de abarrotes, y redirecciona la atención al catálogo.
 `;
 
-    const chat = ai.chats.create({
-      model: "gemini-3.5-flash",
-      config: {
-        systemInstruction: systemInstruction,
-        temperature: 0.7,
-      },
-    });
+    const openAI = openAIKey ? new OpenAI({ apiKey: openAIKey }) : undefined;
 
-    // Feed conversational history to the model
-    // Gemini SDK chat expects messages to be structured in a specific history format
-    // For simplicity, we can load history into the chat context or use single message with historical context
-    // The history parameter is an array of { role: 'user'|'model', text: '...' }
     let prompt = message;
+    const messages: Array<{ role: "system" | "user" | "assistant"; content: string }> = [];
     if (history && history.length > 0) {
-      const formattedHistory = history.map((h: any) => `${h.role === "user" ? "Cliente" : "Asistente"}: ${h.text}`).join("\n");
-      prompt = `${formattedHistory}\nCliente: ${message}`;
+      history.forEach((h: any) => {
+        if (h.role === "user" || h.role === "assistant") {
+          messages.push({
+            role: h.role,
+            content: h.text,
+          });
+        }
+      });
     }
 
-    const result = await chat.sendMessage({ message: prompt });
-    res.json({ text: result.text });
+    const systemMessage = {
+      role: "system" as const,
+      content: systemInstruction,
+    };
+
+    if (aiProvider === "openai" && openAI) {
+      const chatMessages = [...messages];
+      if (!chatMessages.some((m) => m.role === "system")) {
+        chatMessages.unshift(systemMessage);
+      }
+      chatMessages.push({ role: "user", content: prompt });
+
+      const response = await openAI.chat.completions.create({
+        model: "gpt-4.1-mini",
+        messages: chatMessages as any,
+        temperature: 0.7,
+      });
+
+      resultText = response.choices?.[0]?.message?.content ?? "";
+    } else {
+      const ai = new GoogleGenAI({
+        apiKey: apiKey,
+        httpOptions: {
+          headers: {
+            "User-Agent": "aistudio-build",
+          }
+        }
+      });
+
+      const chat = ai.chats.create({
+        model: "gemini-3.5-flash",
+        config: {
+          systemInstruction: systemInstruction,
+          temperature: 0.7,
+        },
+      });
+
+      const formattedHistory = messages.length > 0
+        ? messages.map((m) => `${m.role === "user" ? "Cliente" : "Asistente"}: ${m.content}`).join("\n")
+        : "";
+      const promptText = formattedHistory ? `${formattedHistory}\nCliente: ${prompt}` : prompt;
+
+      const result = await chat.sendMessage({ message: promptText });
+      resultText = result.text;
+    }
+
+    res.json({ text: resultText });
 
   } catch (error: any) {
     console.error("Gemini API Error:", error);
