@@ -365,8 +365,9 @@ app.post("/api/sheets/import", (req, res) => {
 
 // Gemini Chat Endpoint
 app.post("/api/chat", async (req, res) => {
+  const { message, history } = req.body;
+
   try {
-    const { message, history } = req.body;
     const db = readDB();
 
     // Lazy initialization of Gemini API
@@ -455,7 +456,14 @@ REGLAS DE COMPORTAMIENTO:
 
   } catch (error: any) {
     console.error("Gemini API Error:", error);
-    res.status(500).json({ error: "Error en el servidor de Inteligencia Artificial: " + error.message });
+
+    // Fallback local response cuando Gemini no está disponible o da errores temporales.
+    const db = readDB();
+    const fallbackText = simulateLocalResponse(message, db.products, db.offers, db.settings);
+    res.json({
+      text: fallbackText,
+      warning: "Gemini no está disponible temporalmente. Respuesta local generada para mantener la demo funcionando."
+    });
   }
 });
 
