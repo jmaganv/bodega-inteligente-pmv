@@ -22,7 +22,7 @@
     },
     {
       "id": "p3",
-      "name": "Fideos TallarÃƒÂ­n Don Vittorio 1kg",
+      "name": "Fideos Tallarí­n Don Vittorio 1kg",
       "category": "Abarrotes",
       "price": 5.2,
       "costPrice": 3.8,
@@ -53,7 +53,7 @@
     {
       "id": "p6",
       "name": "Leche Gloria Azul Lata 400g",
-      "category": "LÃ¡cteos y Huevos",
+      "category": "Lácteos y Huevos",
       "price": 4.5,
       "costPrice": 3.4,
       "stock": 58,
@@ -63,7 +63,7 @@
     {
       "id": "p7",
       "name": "Yogurt Gloria Fresa 1L",
-      "category": "LÃ¡cteos y Huevos",
+      "category": "Lácteos y Huevos",
       "price": 7.2,
       "costPrice": 5.2,
       "stock": 14,
@@ -73,7 +73,7 @@
     {
       "id": "p8",
       "name": "Queso Fresco Andino 1kg",
-      "category": "LÃ¡cteos y Huevos",
+      "category": "Lácteos y Huevos",
       "price": 24,
       "costPrice": 18,
       "stock": 6,
@@ -83,7 +83,7 @@
     {
       "id": "p9",
       "name": "Mantequilla Gloria con Sal 200g",
-      "category": "LÃ¡cteos y Huevos",
+      "category": "Lácteos y Huevos",
       "price": 6.8,
       "costPrice": 4.9,
       "stock": 24,
@@ -93,7 +93,7 @@
     {
       "id": "p10",
       "name": "Plancha de Huevos (30 unid)",
-      "category": "LÃ¡cteos y Huevos",
+      "category": "Lácteos y Huevos",
       "price": 16.5,
       "costPrice": 12.5,
       "stock": 11,
@@ -192,7 +192,7 @@
     },
     {
       "id": "p20",
-      "name": "Detergente BoliÂ­var Flores de Limon 1kg",
+      "name": "Detergente Bolívar Flores de Limón 1kg",
       "category": "Productos de Limpieza",
       "price": 10.2,
       "costPrice": 7.5,
@@ -202,7 +202,7 @@
     },
     {
       "id": "p21",
-      "name": "Lavavajilla AyudiÂ­n LimÃ³n 400g",
+      "name": "Lavavajilla Ayudi­n Limón 400g",
       "category": "Productos de Limpieza",
       "price": 4.8,
       "costPrice": 3.4,
@@ -212,7 +212,7 @@
     },
     {
       "id": "p22",
-      "name": "LejÃ­a Clorox Tradicional 1L",
+      "name": "Leji­a Clorox Tradicional 1L",
       "category": "Productos de Limpieza",
       "price": 3.9,
       "costPrice": 2.7,
@@ -574,8 +574,8 @@
     }
   ],
   "settings": {
-    "bodegaName": "Bodega Belthi y Nancy",
-    "ownerName": "Belthi y Nancy",
+    "bodegaName": "Bodega Don Pepito",
+    "ownerName": "Pepito",
     "phoneYape": "987654321",
     "phonePlin": "912345678",
     "whatsappNumber": "51987654321"

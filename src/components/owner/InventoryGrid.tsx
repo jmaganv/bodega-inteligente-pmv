@@ -22,6 +22,7 @@ export const InventoryGrid: React.FC = () => {
   const [csvInput, setCsvInput] = useState<string>("");
   const [importCount, setImportCount] = useState<number | null>(null);
   const [deletingProductId, setDeletingProductId] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleEditClick = (p: Product) => {
     setActiveProduct(p);
@@ -34,10 +35,24 @@ export const InventoryGrid: React.FC = () => {
   };
 
   const handleSaveProduct = async (pPayload: Partial<Product>) => {
-    if (activeProduct) {
-      await updateProduct(activeProduct.id, pPayload);
-    } else {
-      await addProduct(pPayload);
+    try {
+      if (activeProduct) {
+        await updateProduct(activeProduct.id, pPayload);
+        setSuccessMessage("¡Producto actualizado con éxito!");
+      } else {
+        await addProduct(pPayload);
+        setSuccessMessage("¡Producto creado con éxito!");
+      }
+      
+      // Limpiar el estado después de guardar
+      setActiveProduct(null);
+      setShowForm(false); // Asegurar que se cierra el modal
+      
+      // Limpiar el mensaje de éxito después de 3 segundos
+      setTimeout(() => setSuccessMessage(null), 3000);
+    } catch (err: any) {
+      console.error("Error saving product:", err);
+      alert("Hubo un error al guardar el producto: " + err.message);
     }
   };
 
@@ -52,7 +67,9 @@ export const InventoryGrid: React.FC = () => {
       csv += `"${safeId}","${safeName}","${safeCategory}",${p.price || 0},${p.costPrice || 0},${p.stock || 0},${p.minStock || 0},"${safeUnit}"\n`;
     });
 
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+    // Agregar BOM de UTF-8 para mejor compatibilidad con Excel y Google Sheets
+    const utf8BOM = '\uFEFF';
+    const blob = new Blob([utf8BOM + csv], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = url;
@@ -128,6 +145,14 @@ export const InventoryGrid: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Success notification for product save */}
+      {successMessage && (
+        <div className="p-3 bg-emerald-500/15 border border-emerald-500/30 text-emerald-600 text-xs font-bold rounded-xl flex items-center gap-2 animate-fade-in">
+          <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></div>
+          <span>{successMessage}</span>
+        </div>
+      )}
 
       {/* Sheets Import Area (Toggled) */}
       {showImport && (

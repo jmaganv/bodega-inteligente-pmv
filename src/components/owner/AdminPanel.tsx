@@ -13,7 +13,16 @@ import { Offer } from "../../types/offer";
 export const AdminPanel: React.FC = () => {
   const { offers, addOffer, deleteOffer } = useOffers();
   
-  const [activeTab, setActiveTab] = useState<"pos" | "inventory" | "sales" | "promotions">("pos");
+  const [activeTab, setActiveTabState] = useState<"pos" | "inventory" | "sales" | "promotions">(() => {
+    const savedTab = localStorage.getItem("adminActiveTab") as "pos" | "inventory" | "sales" | "promotions" | null;
+    return savedTab || "pos";
+  });
+  
+  const setActiveTab = (tab: "pos" | "inventory" | "sales" | "promotions") => {
+    setActiveTabState(tab);
+    localStorage.setItem("adminActiveTab", tab);
+  };
+  
   const [showSettings, setShowSettings] = useState<boolean>(false);
   const [showOfferForm, setShowOfferForm] = useState<boolean>(false);
   const [deletingOfferId, setDeletingOfferId] = useState<string | null>(null);

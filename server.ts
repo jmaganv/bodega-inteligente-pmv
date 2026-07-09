@@ -14,7 +14,13 @@ const app = express();
 //const PORT = 3000;
 const PORT = Number(process.env.PORT) || 3000;
 
-app.use(express.json());
+// Middleware para establecer charset UTF-8 en todas las respuestas JSON
+app.use((req, res, next) => {
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  next();
+});
+
+app.use(express.json({ limit: '50mb' }));
 
 // Persistent simulated Google Sheets / JSON Database file path
 const DB_PATH = path.join(process.cwd(), "data_sheets.json");
@@ -71,7 +77,9 @@ function readDB(): DatabaseSchema {
 }
 
 function writeDB(db: DatabaseSchema) {
-  fs.writeFileSync(DB_PATH, JSON.stringify(db, null, 2), "utf8");
+  // Asegurar que se escribe con UTF-8 explícitamente
+  const jsonString = JSON.stringify(db, null, 2);
+  fs.writeFileSync(DB_PATH, jsonString, { encoding: 'utf8' });
 }
 
 function getNextProductId(existingProducts: Product[]): string {
@@ -272,9 +280,12 @@ app.get("/api/sheets/export", (req, res) => {
   db.products.forEach((p) => {
     csv += `"${p.id}","${p.name}","${p.category}",${p.price},${p.costPrice || 0},${p.stock},${p.minStock},"${p.unit}"\n`;
   });
-  res.setHeader("Content-Type", "text/csv");
+  // Agregar BOM de UTF-8 para mejor compatibilidad con Excel y Google Sheets
+  const utf8BOM = Buffer.from([0xEF, 0xBB, 0xBF]);
+  const csvBuffer = Buffer.concat([utf8BOM, Buffer.from(csv, 'utf8')]);
+  res.setHeader("Content-Type", "text/csv; charset=utf-8");
   res.setHeader("Content-Disposition", "attachment; filename=inventario_bodega.csv");
-  res.send(csv);
+  res.send(csvBuffer);
 });
 
 app.post("/api/sheets/import", (req, res) => {
@@ -488,7 +499,7 @@ REGLAS DE COMPORTAMIENTO:
       const promptText = formattedHistory ? `${formattedHistory}\nCliente: ${prompt}` : prompt;
 
       const result = await chat.sendMessage({ message: promptText });
-      resultText = result.text;
+      resultText = result.text ?? "";
     }
 
     res.json({ text: resultText });

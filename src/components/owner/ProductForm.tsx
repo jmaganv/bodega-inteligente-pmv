@@ -59,19 +59,35 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSa
         unit,
       };
       await onSave(payload);
-      alert("¡Producto guardado con éxito!");
+      // Cierra inmediatamente después de guardar para evitar re-renders involuntarios
       onClose();
     } catch (err) {
       console.error("Error saving product:", err);
-      alert("Hubo un error al guardar el producto.");
-    } finally {
+      alert("Hubo un error al guardar el producto: " + err.message);
       setSaving(false);
     }
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl w-full max-w-lg border border-slate-200 shadow-xl overflow-hidden font-sans">
+    <div 
+      className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4"
+      onClick={(e) => {
+        // Solo cierra si se hace click en el fondo (fuera del formulario)
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+      onKeyDown={(e) => {
+        // Cerrar con ESC
+        if (e.key === "Escape") {
+          onClose();
+        }
+      }}
+    >
+      <div 
+        className="bg-white rounded-2xl w-full max-w-lg border border-slate-200 shadow-xl overflow-hidden font-sans"
+        onClick={(e) => e.stopPropagation()}
+      >
         
         {/* Form Header */}
         <div className="px-5 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-900 text-white">

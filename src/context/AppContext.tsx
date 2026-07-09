@@ -57,10 +57,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [offers, setOffers] = useState<Offer[]>([]);
   const [sales, setSales] = useState<Sale[]>([]);
   const [settings, setSettings] = useState<Settings>(DEFAULT_SETTINGS);
-  const [currentRole, setCurrentRole] = useState<"customer" | "owner">("customer");
+  // Recuperar el rol del localStorage o usar "customer" como valor por defecto
+  const [currentRole, setCurrentRoleState] = useState<"customer" | "owner">(() => {
+    const savedRole = localStorage.getItem("userRole");
+    return (savedRole as "customer" | "owner") || "customer";
+  });
   const [cart, setCart] = useState<ShoppingCartItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Envolver setCurrentRole para también guardar en localStorage
+  const setCurrentRole = useCallback((role: "customer" | "owner") => {
+    setCurrentRoleState(role);
+    localStorage.setItem("userRole", role);
+  }, []);
 
   // Load everything on start
   const refreshAll = useCallback(async () => {
