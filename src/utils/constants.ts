@@ -11,8 +11,8 @@ export const CATEGORIES = [
 ];
 
 export const DEFAULT_SETTINGS: Settings = {
-  bodegaName: "Bodega Belthi y Nancy",
-  ownerName: "Belthi y Nancy",
+  bodegaName: "Bodega Don Pepito",
+  ownerName: "Pepito",
   phoneYape: "987654321",
   phonePlin: "912345678",
   whatsappNumber: "51987654321",
