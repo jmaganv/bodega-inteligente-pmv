@@ -6,13 +6,14 @@ interface GenerateWhatsAppLinkParams {
   total: number;
   paymentMethod: string;
   customerName: string;
+  ownerName: string; // Nombre dinámico del dueño
 }
 
 export const whatsappService = {
-  generateLink: ({ phoneNumber, items, total, paymentMethod, customerName }: GenerateWhatsAppLinkParams): string => {
+  generateLink: ({ phoneNumber, items, total, paymentMethod, customerName, ownerName }: GenerateWhatsAppLinkParams): string => {
     const cleanNumber = phoneNumber.replace(/\D/g, "");
     
-    let message = `*¡Hola Belthi y Nancy!* 👋\n`;
+    let message = `*¡Hola ${ownerName}!* 👋\n`;
     message += `Quisiera hacer un pedido desde la Bodega Inteligente:\n\n`;
     message += `👤 *Cliente:* ${customerName || "Vecino"}\n`;
     message += `🛒 *Detalle del Pedido:*\n`;

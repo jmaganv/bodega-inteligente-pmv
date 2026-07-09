@@ -36,7 +36,8 @@ export const CheckoutForm: React.FC<CheckoutFormProps> = ({ onBack }) => {
         items: cart,
         total,
         paymentMethod,
-        customerName
+        customerName,
+        ownerName: settings.ownerName
       });
 
       setWhatsappUrl(link);

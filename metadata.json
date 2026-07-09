@@ -1,6 +1,6 @@
 {
   "name": "Bodega Inteligente",
-  "description": "MVP de Bodega Inteligente para Belthi y Nancy en Chorrillos: asistente de IA para ventas, caja rápida táctil, control de inventario y pedidos por WhatsApp con Yape/Plin.",
+  "description": "MVP de Bodega Inteligente en Chorrillos: asistente de IA para ventas, caja rápida táctil, control de inventario y pedidos por WhatsApp con Yape/Plin.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -1,7 +1,9 @@
 import React from "react";
 import { Store, ShieldCheck } from "lucide-react";
+import { useApp } from "../../context/AppContext";
 
 export const Footer: React.FC = () => {
+  const { settings } = useApp();
   return (
     <footer className="w-full bg-slate-100 text-slate-500 py-4 px-6 border-t border-slate-200 font-sans text-xs">
       <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
@@ -20,7 +22,7 @@ export const Footer: React.FC = () => {
 
         {/* Brand credit */}
         <div className="text-[10px] font-extrabold text-slate-400 uppercase tracking-widest text-center sm:text-right">
-          Bodega Inteligente v1.0.4 • PMV Chorrillos • © 2026 Belthi y Nancy
+          Bodega Inteligente v1.0.4 • PMV Chorrillos • © 2026 {settings.ownerName}
         </div>
 
       </div>
