@@ -43,8 +43,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSa
     }
   }, [product]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    e.stopPropagation();
     if (!name.trim()) return;
 
     setSaving(true);
@@ -59,7 +60,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({ product, onClose, onSa
         unit,
       };
       await onSave(payload);
-      // Cierra inmediatamente después de guardar para evitar re-renders involuntarios
+      // Cierra inmediatamente despues de guardar para evitar re-renders involuntarios
       onClose();
     } catch (err) {
       console.error("Error saving product:", err);

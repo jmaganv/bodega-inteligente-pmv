@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useProducts } from "../../hooks/useProducts";
 import { Product } from "../../types/product";
 import { ProductForm } from "./ProductForm";
@@ -22,7 +22,63 @@ export const InventoryGrid: React.FC = () => {
   const [csvInput, setCsvInput] = useState<string>("");
   const [importCount, setImportCount] = useState<number | null>(null);
   const [deletingProductId, setDeletingProductId] = useState<string | null>(null);
-  const [successMessage, setSuccessMessage] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(() => {
+    // Recuperar mensaje de localStorage si existe
+    const stored = localStorage.getItem("_inv_success_msg");
+    if (stored) {
+      localStorage.removeItem("_inv_success_msg");
+      localStorage.removeItem("_inv_success_time");
+      return stored;
+    }
+    return null;
+  });
+
+  // Efecto para mostrar mensajes recientes guardados en localStorage
+  useEffect(() => {
+    const checkMessage = () => {
+      const msg = localStorage.getItem("_inv_success_msg");
+      const time = localStorage.getItem("_inv_success_time");
+      
+      if (msg && time) {
+        const savedTime = parseInt(time, 10);
+        const elapsed = Date.now() - savedTime;
+        
+        // Si el mensaje fue guardado hace menos de 5 segundos, mostrarlo
+        if (elapsed < 5000) {
+          setSuccessMessage(msg);
+          const remaining = 5000 - elapsed;
+          setTimeout(() => {
+            setSuccessMessage(null);
+            localStorage.removeItem("_inv_success_msg");
+            localStorage.removeItem("_inv_success_time");
+          }, remaining);
+        } else {
+          // Limpiar si el mensaje es muy viejo
+          localStorage.removeItem("_inv_success_msg");
+          localStorage.removeItem("_inv_success_time");
+        }
+      }
+    };
+    
+    // Chequear al montar
+    checkMessage();
+    
+    // Chequear cada 500ms en caso de que el componente se remonte
+    const interval = setInterval(checkMessage, 500);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Limpiar el mensaje después de 5 segundos
+  useEffect(() => {
+    if (successMessage) {
+      const timer = setTimeout(() => {
+        setSuccessMessage(null);
+        localStorage.removeItem("_inv_success_msg");
+        localStorage.removeItem("_inv_success_time");
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [successMessage]);
 
   const handleEditClick = (p: Product) => {
     setActiveProduct(p);
@@ -36,20 +92,21 @@ export const InventoryGrid: React.FC = () => {
 
   const handleSaveProduct = async (pPayload: Partial<Product>) => {
     try {
+      const msg = activeProduct ? "¡Producto actualizado con éxito!" : "¡Producto creado con éxito!";
       if (activeProduct) {
         await updateProduct(activeProduct.id, pPayload);
-        setSuccessMessage("¡Producto actualizado con éxito!");
       } else {
         await addProduct(pPayload);
-        setSuccessMessage("¡Producto creado con éxito!");
       }
+      
+      // Guardar en localStorage con timestamp (persiste incluso si se desmonta el componente)
+      localStorage.setItem("_inv_success_msg", msg);
+      localStorage.setItem("_inv_success_time", Date.now().toString());
+      setSuccessMessage(msg);
       
       // Limpiar el estado después de guardar
       setActiveProduct(null);
-      setShowForm(false); // Asegurar que se cierra el modal
-      
-      // Limpiar el mensaje de éxito después de 3 segundos
-      setTimeout(() => setSuccessMessage(null), 3000);
+      setShowForm(false);
     } catch (err: any) {
       console.error("Error saving product:", err);
       alert("Hubo un error al guardar el producto: " + err.message);

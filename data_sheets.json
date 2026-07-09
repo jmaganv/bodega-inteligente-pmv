@@ -329,6 +329,16 @@
       "minStock": 5,
       "unit": "kg",
       "id": "p33"
+    },
+    {
+      "name": "Leche en polvo  1 Kg",
+      "category": "Abarrotes",
+      "price": 50,
+      "costPrice": 40,
+      "stock": 5,
+      "minStock": 2,
+      "unit": "lata",
+      "id": "p34"
     }
   ],
   "sales": [
