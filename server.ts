@@ -14,13 +14,13 @@ const app = express();
 //const PORT = 3000;
 const PORT = Number(process.env.PORT) || 3000;
 
-// Middleware para establecer charset UTF-8 en todas las respuestas JSON
-app.use((req, res, next) => {
+app.use(express.json({ limit: '50mb' }));
+
+// Middleware para establecer charset UTF-8 SOLO en respuestas JSON de API
+app.use('/api', (req, res, next) => {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   next();
 });
-
-app.use(express.json({ limit: '50mb' }));
 
 // Persistent simulated Google Sheets / JSON Database file path
 const DB_PATH = path.join(process.cwd(), "data_sheets.json");
