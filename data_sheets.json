@@ -56,7 +56,7 @@
       "category": "Lácteos y Huevos",
       "price": 4.5,
       "costPrice": 3.4,
-      "stock": 58,
+      "stock": 57,
       "minStock": 12,
       "unit": "lata"
     },
@@ -555,6 +555,114 @@
       "status": "completado",
       "id": "v_1783476173855",
       "date": "2026-07-08T02:02:53.855Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p3",
+          "productName": "Fideos Tallarí­n Don Vittorio 1kg",
+          "price": 5.2,
+          "quantity": 1,
+          "total": 5.2
+        }
+      ],
+      "total": 5.2,
+      "paymentMethod": "Plin",
+      "status": "pendiente",
+      "customerPhone": "950143313",
+      "customerName": "pp",
+      "id": "v_1783902526058",
+      "date": "2026-07-13T00:28:46.058Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p3",
+          "productName": "Fideos Tallarí­n Don Vittorio 1kg",
+          "price": 5.2,
+          "quantity": 1,
+          "total": 5.2
+        }
+      ],
+      "total": 5.2,
+      "paymentMethod": "Plin",
+      "status": "pendiente",
+      "customerPhone": "950143313",
+      "customerName": "pp",
+      "id": "v_1783902622066",
+      "date": "2026-07-13T00:30:22.066Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p3",
+          "productName": "Fideos Tallarí­n Don Vittorio 1kg",
+          "price": 5.2,
+          "quantity": 1,
+          "total": 5.2
+        }
+      ],
+      "total": 5.2,
+      "paymentMethod": "Plin",
+      "status": "pendiente",
+      "customerPhone": "950143313",
+      "customerName": "pp",
+      "id": "v_1783904133027",
+      "date": "2026-07-13T00:55:33.027Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p6",
+          "productName": "Leche Gloria Azul Lata 400g",
+          "price": 4.5,
+          "quantity": 1,
+          "total": 4.5
+        }
+      ],
+      "total": 4.5,
+      "paymentMethod": "Yape",
+      "status": "completado",
+      "customerPhone": "950143313",
+      "customerName": "pp",
+      "id": "v_1783953124704",
+      "date": "2026-07-13T14:32:04.704Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p3",
+          "productName": "Fideos Tallarí­n Don Vittorio 1kg",
+          "price": 5.2,
+          "quantity": 1,
+          "total": 5.2
+        }
+      ],
+      "total": 5.2,
+      "paymentMethod": "Yape",
+      "status": "pendiente",
+      "customerPhone": "950143313",
+      "customerName": "pp",
+      "id": "v_1783959448837",
+      "date": "2026-07-13T16:17:28.837Z"
+    },
+    {
+      "items": [
+        {
+          "productId": "p1",
+          "productName": "Aceite Primor Premium 2L",
+          "price": 12.5,
+          "quantity": 1,
+          "total": 12.5
+        }
+      ],
+      "total": 12.5,
+      "paymentMethod": "Yape",
+      "status": "pendiente",
+      "customerPhone": "950143313",
+      "customerName": "pp",
+      "id": "v_1783961812175",
+      "date": "2026-07-13T16:56:52.175Z"
     }
   ],
   "offers": [

@@ -7,7 +7,7 @@ import { ShoppingCart as CartIcon, Trash2, Plus, Minus, ArrowRight, CornerDownLe
 export const ShoppingCart: React.FC = () => {
   const { cart, total, subtotal, offers, itemCount, updateCartQty, removeFromCart, clearCart } = useCart();
   const [showCheckout, setShowCheckout] = useState<boolean>(false);
-
+  
   if (showCheckout) {
     return <CheckoutForm onBack={() => setShowCheckout(false)} />;
   }
